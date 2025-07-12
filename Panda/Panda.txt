@@ -1,0 +1,191 @@
+two type of data structure in pandas:-
+1) Series = one dimessional array.
+2) DataFrame and Panel
+
+Using Series structure:-
+import pandas as pd
+a = pd.series()
+print(a)
+
+Using DataFrame Structure:-
+import pandas as pd
+l= [1,2,2,3]
+var = pd.Dataframe(l)
+print(l)
+also use with dictionary & Series.
+finding index = print(var1["a"][3])
+
+Arithmetic Operators in Python pandas
+1) +
+2) -
+3) * 
+4) /
+5) ==
+6) >=
+7) <=
+
+How to insert data and delete:-
+Using for column.= var2.insert(1,"python_1",[9,10,11,12])
+Using for indexing = var2["python_12"] = var2["A"][:3]
+Using for delete.
+
+How to Crate pandas CSV Files:-
+d.to_csv("Test_new1.csv")
+d.to_csv("Test_new1.csv" ,index=False)
+d.to_csv("Test_new1.csv", index=False,header=[1,2,3])
+
+How to read CSV files with Pandas:-
+csv_1 = pd.read_csv("path of the file")
+when you get paticular row = pd.read_csv("path of the file",nrows=1)
+when you get particular column = pd.read_csv("path of the file",usecols=["SYMBOL"])
+you get column use index = pd.read_csv("Path of the file",usecols=[0,3])
+when you want skip paricular row = pd.read_csv("path of the file), skiprows=[0])
+when you want index number of data in intiger & row use this method= pd.read_csv("path of the file",index_col="SYMBOL")
+when you want to change header name= pd.read_csv("path of the file",header =2)
+pd.read_csv("path of the file",names[col1,col2,col3,col4,col5])
+pd.read_csv("path of the file",header = None)
+pd.read_csv("path of the file",header = None, prefix="col")
+when you want change type of data= pd.read_csv("path of the file",dtype={"column name":float})
+
+Pandas functions:-
+when you get only index in data use this method = csv_1.index
+when you get only column in data use this method = csv_1.columns
+csv_1.describe()
+when you only take fix amount of data use this method but this give only give head data= csv_1.head(2)
+when you only take tail data use this method = csv_1.tail(2)
+when you take only particular column use this method = csv_1[6:11]
+type method = print(type(csv_1))
+convert index to array = csv_1.index.array
+convert dataFrame in to array = 1) csv_1.to_numpy()
+                                2) (a) import numpy as np
+                                   (b) v = np.asarray(csv_1)
+                                   (c) v
+descanding data = csv_1.sort_index(axis =0, ascending = False)
+how to change data in column with paticular indexing = csv_1["SYMBOL"]="python"
+                                                       csv_1.loc["fill row of index","current column name"] = "python"
+when you get data with use loc method = csv_1.loc[[fill indexing of row ,fll indexing of row],[which column data you want?,which column data you want?]]
+when you get data with full amount column  with loc method = csv_1.loc[:,["column","column"]]
+when you particular one data = csv_1.iloc[fill row indexing which you want?,fill column indexing which you want?]
+when you want drop data use this method= csv_1.drop("fill column name",axis =1)
+                                         csv_1.drop("fill row indexing",axis =0)
+
+
+Handling Missing Data (Dropena and fillna):-
+when you want without "Nan" data use this method = var.dropna()
+when you want without "Nan" data & along with column use this method = var.dropna(axis=1)
+when you want without "Nan" data % along with paticular row use this method = var.dropna(axis=0)
+var.dropna(how="any")
+var.dropna(how="all")
+when you want to without "Nan" data and with paticular column = var.dropna(subset=['fill column which change you?'])
+when you want only paticular row data use with specific "Nan" = var.dropna(thresh = 2)
+when you want fill "Nan" value use this method = var.fillna('fill string&coulmn which you want?')
+fill Nan value use with Nan data = var.fillna({"column name":"fil your text","colunm name",:"fill your text","column":"fill you text","colunm name":"fill your text"})
+when you want fill data and use previous row data use this method = Two types 1) forward
+                                                                              2) Backward
+1) forward type = var.fillna(method = "ffill") # and use with axis along = axis = 0 row
+2) Backward type = var.fillna(method = "bfill") # and use with axis along = axis = 1 column
+when you want replace "Nan" value use this method = var.fillna(12,inplace=True)
+when you want fill "Nan" value use this method but want paticular limit = var.fillna['python',limit= 2)
+
+Handling Missing Data(Replace and interpolate)
+when you want replace value use this method = var.replace(to_replace=1,value=22)
+when you want change string value use this method = var.replace(to_replace="fill coulmn name which want change you?",value="fill you value")
+var.replace([1,2,3,45,6,7,8],22)
+regular expression var.replace("[A-Z],"python",regex=True)
+Use replace method with dictionay = var.replace({"column name":'[A-Z]},22, regex= True)
+Use replace with method parmiter(forward filling) = var.replace("fill value/String which change want you?",method="ffill")
+Use replace with method parmiter(Backward filling) = var.replace("fill value/String which change want you?",method="bfill")
+when you want replace value but paticular ammount = var.replace("fill value/String which change want you?",method="ffill",limit= 2)
+
+How work Implace:-
+implace not make a copy he is change orginal data and then you call dataset will you show data which change you.
+var.replace("fill value/String which change want you?",method="ffill",limit=3,implace=True)
+
+How work interpole method:-
+method list= method:{linear,time,index,values,nearest,zero,slinear,quarditic,cubic,barycentric,krogh,polynomial,spline,piecewise_polynomial,from_derivates,pchip.akima}
+interpole method only work with intiger not string.
+when you want work with interpole method and want liner value = var.interpolate(method="linear",axis=0) # axis = 0 for column ,# axis = 1 for colunm
+when you want paticular fill nan value = var.interpole(limit=2)
+when you want change Nan value with forward method & backward & both = 
+1) Forward = var.interpolate(limit_direcation="forward",limit=2)
+2) Backward =var.interpolate(limit_direcation="backward",limit=2)
+3) Both = var.interpolate(limit_direcation="both",limit=2)
+limit area = what you change Nan value?
+Yes for use this method = var.intepolate(limit_area = "outside" )
+No for use this method = var.interpolate(limit_area = "inside" )
+use interpolate with implace = var.interpolate(limit_direaction="both",limit=2,implace=True)
+
+How to Merge and Concat DataFrames:-
+pd.merge(var1,var2)
+He shows common data = pd.merge(var1,var2,on="A") 
+pd.merge(var1,var2,how="inner")
+pd.merge(var,var2,how="left)
+pd.merge(var,var2,how="Right")
+pd.merge(var1,var2,how="outer")
+which parameter active in your in data = pd.merge(var1,var2,how="outer",indicator =True)
+pd.merge(var1,var2,left_index=True,right_index=True) 
+pd.merge(var1,var2,left_index=True,right_index=True,suffixes={"name","id")
+
+How work Concat:-
+this method work with DataFrame & Series.
+this method does not work comman data.
+work with series= pd.concate([sr1,sr2])
+work with DataFrame = pd.concate([d1,d2])
+pd.concat([d1,d2],axis=0) # for row
+pd.concat([d1,d2],axis=1) # for column
+this metho show unioun of data = 
+pd.concate([d1,d2],axis=1,join="inner")
+this metho shows Missing data =
+pd.concat([d1,d2],axis=1,join ="outer")
+make merging data key = pd.concate([d1,d2],axis=1,keys=["d1","d2"])
+work with 1D DataFrame to 2D DataFrame.
+
+How work Grouping Data:-
+You give random data and how use group by use this method.
+var_new = var.groupby("colunm name")
+this data also groupd but he is does not show data use this method = for x,y in var_new:
+print(x)
+print(y)
+when you want singal paticular data use this method = var.get_group("a")
+when you want data minium & maximum = for minimum = var_new.min()
+for maximum = var_new.max()
+when you want mean data use this method = var.new.mean()
+when you want convert your data in to list use this method = li = list(var_new)
+
+How to Join and Append DataFrames:-
+var1.join(var2)
+when you want data and with change index use this method = var1 = pd.DataFrame({"A":[1,2,3,4],"B":[11,12,13,14]},index =["a","b","c","d"])
+var2 = pd.DataFrame({"C":[10,20],"D":[11,22]},index =["a","b"])
+when you want change colunm side use this method = var2.join(var1)
+var1.jon(var2)
+but when you full data use this method= var2.join(var1,how="left")
+                                        var2.join(var1,how="right")
+when you want unioun of data = var2.join(var1,how="outer")
+when you want common data use this method = var2.join(var1,how="inner")
+when 2 colunm name is same so you change colunm name on run time with suffex paramiter = 
+var.2join(var1,how="outer",lsuffix="_12")
+when you want left suffix and right suffix use this method = var.2join(var1,how="outer",lsuffix="_12",rsuffix=_"12")
+
+How work append:-
+ with index var1 = pd.DataFrame({"A",:[1,2,3,4],"B":[11,12,13,14]},index =["a","b","c","d"])
+var2 = pd.DataFrame({"C":[10,20],"D":[11,22]},index =["a","b"])
+var1.append(var2)
+without index = 
+var1 = pd.DataFrame({"A",:[1,2,3,4],"B":[11,12,13,14]},index =["a","b","c","d"])
+var2 = pd.DataFrame({"C":[10,20],"D":[11,22]})
+var1.append(var2)
+when you want index along with you comfort use this method = var1.append(var2,ignore_index=True)
+
+How work melt functions:-
+when you want change data horizationl to vartical use this method = pd.melt(var)
+when you want specific coumln make to id use this method = pd.melt(var,id_vars=["Days])
+when you want change var name use this method = pd.melt(var,id_vars=["Days"],var_name="python")
+when you want change value name = pd.melt(var,id_vars=["Days"],var_name="python",value_name="wscube")
+
+How work pivot functions:-
+minimu 2 Agrument.
+var.pivot(index=days,columns="st_name")
+when you want singal data = var.pivot(index="days",columns="st_name",values="eng")
+when you want arthmetic opperations = var.pivot_table(index="st_name",columns="days",aggfunc="mean")
+var.pivot_table(index="st_name",columns="days",aggfunc="sum")
+how work margin= var.pivot_table(index="st_name",columns="days",aggfunc="sum",margins="True")

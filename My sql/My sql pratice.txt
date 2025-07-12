@@ -1,0 +1,123 @@
+how to insert data in table:-
+insert into machinelearing
+values("France",44.0,72000.0,No),
+("Spain",27.0,48000.0,Yes),
+(Germany,30.0,54000.0 No),
+(Spain,38.0,61000.0 "No"),
+(Gemany,40.0,null,"Yes"),
+("France",35.0,58000.0,"Yes"),
+("Spain",null,52000.0,"No"),
+("France",48.0,79000.0,"Yes"),
+("Germany",50.0,83000.0,"No"),
+("France",37.0,67000.0,"Yes");
+
+(1,"jimmy" , "usa" , "new york", 35, "M", 70000, "2016-3-4"),
+(2,"john" , "australia" , "melborne",30, "M", 80000, "2018-4-2"),
+(3,"miyra" , "canda", "pinehouse", 40, "F", 50000, "2014-6-4"),
+(4,"vishal", "india", "delhi", 20, "M", 80000, "2023-3-5"),
+(5,"sameer", "india" , "delhi", 21, "M", 70000, "2022-12-2"),
+(6,"harmanpreet", "canda", "ontario", 36, "F", 60000, "2018-8-15"),
+(7,"gurjeet", "australia", "perth", 38, "M", 50000, "2015-5-7"),
+(8,"manpreet", "canda", "pinehouse", 32, "M", 40000, "2016-4-2"),
+(9,"nyara", "india", "mumbai", 30, "F", 30000, "2020-6-7");
+
+(123,"jessy" , "japan" , "marketing", "heroshima", 50000),
+(124, "missty","south africa", "HR", "joburg", 90000),
+(125, "Hardik", "india", "product", "gujrat",75000),
+(126, "virat", "india", "tech", "delhi", 80000),
+(127, "sumit", "canda", "tech", "pinehouse" 90000),
+(128, "jaspreet", "canda", "product", "ontario",100000),
+(129, "jon", "australiya", "IT","melborne",100000),
+(130, "sameer", "india", "HR", "delhi", 120000),
+
+Like operator in my sql:-
+Like 'a%' = Starts with "a"
+Like '%a' = End with "a"
+Like '%or%' = Have "or" in any position
+Like '_r%' = Have "r" in the second position
+Like 'a_%' = Starts with "a" and are at least 2 characters in length
+Like 'a__%' = Starts with "a" and are at least 3 characters in length
+Like 'a%0' = Starts with "a" and ends with "o"
+
+My Sql Aggregation:-
+Count() : Returns the number of rows in a database table.
+Sum() : Returns the total sum of a numeric column.
+Avg() : Calculates the average of set of values.
+Min() : Return the lowest value (minium) in a set of non-null values
+Max() : Return the greatest value (maxium) in set of non-null values
+
+("Bahgirath","Bahgirath01@gmail.com",1),
+("Jhon","Jhon02@gmail.com",2);
+
+My sql joins:-
+creat table student(id int not null unique auto_increment, name varchar(100) not null , age int, course int null,city int null,primary key(id),foregin key(course) references course(cid),foregin key (city) references cities(cid);
+insert into student
+values(1,"Bhagirath",23,1,1),
+("Jhon",25,1,2),
+("Jack",20,2,1),
+("jimmy",19,3,3);
+
+create cities(cid int, name varchar(100),primary key(cid);
+insert into cities
+values(1,"Agra"),
+(2"Bhopal"),
+(3"Delhi"),
+(4,"Noida");
+
+create table course(cid int, name varchar(100),primary key(100));
+insert into course
+values(1,"PHP"),
+(2,"Java"),
+(3,"C++);
+
+
+show databases;
+create database job_details;
+show databases;
+drop database job_detaisl; 
+use job_details;
+create table emp_details (name varchar(25), country varchar(15), city varchar(15), age int, gender char(1), salary float, doj date);
+describe emp_details;
+insert into emp_details
+values ("jimmy" , "usa" , "new york", 35, "M", 70000, "2016-3-4"),
+("john" , "australia" , "melborne",30, "M", 80000, "2018-4-2"),
+("miyra" , "canda", "pinehouse", 40, "F", 50000, "2014-4-6"),
+("vishal", "india", "delhi", 20, "M", 80000, "2023-3-5"),
+("sameer", "india" , "delhi", 21, "M", 70000, "2022-12-2"),
+("harmanpreet", "canda", "ontario", 36, "F", 60000, "2018-11-8"),
+("gurjeet", "australia", "perth", 38, "M", 50000, "2015-5-7"),
+("manpreet", "canda", "pinehouse", 32, "M", 40000, "2016-4-8"),
+("nyara", "india", "mumbai", 30, "F", 30000, "2020-6-7");
+select * from emp_details;
+describe emp_details;
+select * from emp_details;
+select distinct city from emp_details;
+select count(name) from emp_details;
+select sum(salary) from emp_details;
+select avg(salary) from emp_details;
+select name, age, city from emp_details;
+select * from emp_details where age>30;
+select name as "employee",country,age from emp_details;
+select *from emp_details where country = "australia";
+select cid, cities.name, count(cid) as total from  student2
+inner join cities
+on student2.id = cities.cid
+group by(cid)
+having count(cid) >=2
+insert into cities
+values(5,"jaypur"),
+(6,"Kolkata");
+select*from cities
+insert into student2(name,age,course,city)
+values("0ggy",25,1,2),
+("Dee",22,2,1),
+("jimmy",23,2,3);
+select*from student2
+insert into student2(name,age,course,city)
+values("samcurren",25,3,4),
+("trump",22,5,4),
+("obama",24,6,3);
+select*from course
+insert into course
+values(5,"python"),
+(6,"Java");

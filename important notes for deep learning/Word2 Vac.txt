@@ -1,0 +1,28 @@
+import pandas as pd 
+import numpy as np
+
+import gensim
+
+var = pd.read_json("C:\\Users\\vishal\\Downloads\\Sports_and_Outdoors_5.json",lines=True)
+var.head(5)
+var.shape
+
+var.reviewText[0]
+
+gensim.utils.simple_preprocess('This came in on time and I am veru happy with it, I haved used it already and it makes taking out the pins in my glock 32 very easy')
+
+review_text = var.reviewText.apply(gensim.utils.simple_preprocess)
+
+review_text
+
+model = gensim.models.Word2Vec(window=10,min_count=2,workers=4)
+
+model.build_vocab(review_text,progress_per=1000)
+
+model.epochs
+
+model.corpus_count
+
+model.train(review_text,total_examples=model.corpus_count,epochs=model.epochs)
+
+model.wv.most_similar('bad')

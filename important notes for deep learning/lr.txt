@@ -1,0 +1,13 @@
+ann = models.Sequential([
+    layers.Flatten(input_shape=(28,28)),
+    layers.Dense(3000,activation='relu'),
+    layers.Dense(1000,activation='relu'),
+    layers.Dense(10,activation='softmax')])
+
+ann.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+Classification report :-
+y_pred = ann.predict(x_test)
+y_pred_classes = [np.argmax(element) for element in y_pred]

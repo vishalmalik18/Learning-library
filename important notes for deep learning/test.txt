@@ -1,0 +1,28 @@
+count_class_0, count_class_1 = var2.Churn.value_counts()
+count_class_0,count_class_1
+var2_class_0 = var2[var2['Churn'] == 0]
+var2_class_1 = var2[var2['Churn'] == 1]
+var2_class_0.shape,var2_class_1.shape
+var2_class_0_under = var2_class_0.sample(count_class_1)
+var2_test_under = pd.concat([var2_class_0_under, var2_class_1], axis=0)
+var2_class_0_under.shape
+var2_test_under.shape
+
+
+from imblearn.under_sampling import RandomUnderSampler
+from collections import Counter
+
+x = var2.drop('Churn',axis='columns')
+y = var2['Churn']
+rus = RandomUnderSampler(random_state=15)
+x_resampled ,y_resampled = rus.fit_resample(x,y)
+print(sorted(Counter(y_resampled).items()))
+x_resampled.dtypes
+y_resampled.shape
+
+x_train,x_test,y_train,y_test = train_test_split(x_resampled,y_resampled,test_size=0.2,random_state=15)
+
+y_preds = logi.predict(x_test)
+y_preds = np.round(y_preds)
+
+print(classification_report(y_test,y_preds))

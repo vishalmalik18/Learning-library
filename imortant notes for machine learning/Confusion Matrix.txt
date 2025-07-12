@@ -1,0 +1,32 @@
+classfication value performance evaluating
+n by n number of classes
+correct class
+
+Actual Values compare to predict value.
+True class 
+postive neagative 
+True posative = predict value and actual value is True.
+True Neagative = value is Falas and modle false.
+
+False posative = value is False but predict value is True Type 1 error
+False posative = value is True but model predicat false value
+
+Accuracay
+The no of predication that the model got right
+formula Accuracy = (TP+TN)/(TP+FP+FN) = 80+100/200 = 0.9
+
+Error Rate
+The no of predications that the model predicted wrongly
+Error Rate = (FP+FN)/(TP+TN+FP+FN) = 15+5/200 = 0.1
+
+precison
+when the model predicts the positives how often is it right.
+precision = TP/(TP+FP)=80/95=0.86
+
+Recall
+When it's actually yes,how often does it predict yes?
+
+Recall =(TP)/(TP+FN)=80/85=0.94
+
+
+

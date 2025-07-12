@@ -1,0 +1,66 @@
+Linear Regression:- supervised learning
+numerical value and continus value
+singel variable 
+multiple variable
+
+import numpy as np
+import pandas as pd
+import seaborn as sns
+from sklearn import linear_model
+
+import data set.
+
+Linear Equation:-
+y = mx+c  
+y = dependet variable
+x = independet variable
+m = slope/gradiant/coffiecent
+c = intercept
+
+premimum= m*age+c
+
+sns.lmplot(x,y,data=df)
+plt.show()
+
+reg = linear_model.LinearRegression()
+reg.fit(df[['age']],df['premium])
+reg.predict([[21]])
+
+
+reg.coef_
+reg.intercept_
+
+Linear Regression Multiple value:-
+predict value and continus nature use numeric value.
+impor pandas as pd
+from sklearn import linear_model
+
+import dataset
+
+sns.lmplot = (x,y,data=df)
+
+handle missing value = 
+mean_height = df.hegight.mean()
+df.height=df.height.fillna(mean_height)
+df
+reg = linear_model.LinearRegression()
+rg.fit(df[['age','height','weight']],df['premium'])
+
+Linear Equation : y = m1*x1+m2*x2+m3*x3+c
+                  premium = m1*age+m2*height+m3*weight+c
+
+y = dependet variable (premium)
+x1 = independent variable (age)
+x2 = independent variable (height)
+x3 = independent variable (weight)
+m1,m2,m3 = slope/gradient/conefficient
+c-intercept
+
+reg.coef_
+reg.intercept_
+reg.predict([[27,167.56,60]])
+
+
+
+
+

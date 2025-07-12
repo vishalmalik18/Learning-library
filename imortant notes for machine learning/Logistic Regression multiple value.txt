@@ -1,0 +1,19 @@
+import pandas as pd
+
+dataset['Species'].unique()
+dataset['Species'].replace({'Iris-setosa':'1','Iris-versicolor':'2','Iris-viginica':'3'},inplsace=True)
+
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test =  train_test_split(datset[['SepalLengthCm',SepalwidthCm,petalLegthCm ,PetalWidthCm]].datset['Species],test_size=0.2)
+
+len(x)
+len(x_test)
+
+from sklearn.linear_model import LogisticRegrssion()
+lr = logicRegression()
+lr.fit(x_train,x_test)
+lr.predict(x_test)
+x_test
+lr.score(x_test,y_test)
+import seaborn as sns
+sns.pairplot(dataset[['SepalLengthCm',SepalwidthCm,petalLegthCm ,PetalWidthCm]].datset['Species]],hue="Species"]

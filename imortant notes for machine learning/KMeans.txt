@@ -1,0 +1,31 @@
+import pandas as pd 
+import numpy as np 
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.cluster import KMeans
+%matplotlib inline
+
+using dataset = sklearn.datasets import load_iris
+                iris = load_iris()
+
+center of kmeans = km = KMeasn(n_cluster=2)
+                   km.cluster_centers_
+
+find the KMeans for unsupervised learning:-
+
+km = KMeans(n_clusters=2)
+y_predicted = km.fit_predict(var2[['petal length (cm)','petal width (cm)']])
+y_predicted
+
+Finding the k but n number of feature:-
+using elbow method =
+sse = []
+k_rng = range(1,10)
+for k in k_rng:
+    km = KMeans(n_clusters=k)
+    km.fit(var2[['petal length (cm)','petal width (cm)']])
+    sse.append(km.inertia_)
+
+plt.xlabel('k')
+plt.ylabel('sum of squard error')
+plt.plot(k_rng,sse)

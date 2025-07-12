@@ -1,0 +1,45 @@
+import numpy as np
+import pandas as pd
+
+dataset = pd.read_csv("data.csv")
+dataset
+
+store independt value with array =
+x = dataset[["country","Age","Salary"]].values
+
+Store dependent value with array =
+y = dataset[["purchased"]].values
+
+find out missing value = 
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=np.nan,strategy="mean")
+imputer = imputer.fit(x[:,1:3])
+x[:,1:3] = imputer = imputer.transform(x[:,1:3])
+x
+
+categorical data = 
+label encoder
+
+from sklearn.preprocessing import LabelEncoder
+label_encoder_x=LabelEncoder()
+x[:,0] = label_encoder_x.fit_transform(x[:,0])
+
+dummy encoding = 0 and 1 value
+from sklearn.preporcessing import OneHotEncoder
+onehotencoder = OneHotEncoder()
+x = onehotencoder.fit_transform(dataset.Country.values.reshap(-1,1)).toarray()
+
+labelencoder_y = LabelEncoder()
+y = labelencoder_y.fit_transform(y)
+
+split data = 
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test,=train_test_split(x,y,test_size=0.2,random_state=0)
+
+feature scaling =
+from sklearn.preprocessing import StandardSclaer
+sc_x=StandardScaler()
+x_train=sc.x.fit_transform(x_train)
+sc_x.transform(x_test)
+
+

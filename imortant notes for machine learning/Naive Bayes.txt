@@ -1,0 +1,35 @@
+Navie classifer Algo:-
+
+supervised learning
+classfication type problem
+probablity
+
+import pandas as pd
+
+dataset = pd.read_csv("path of the file")
+
+x = dataset[["Gender,"Age",Estimed_salary]]
+
+x = dataset.iloc[:,[1,2,3]].values
+y = dataset.iloc[:,-1].values
+
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+X[:,0]= le.fit_transform(X[:,0])
+X
+
+from sklearn.model_selection import train_test_split
+
+x_train,x_test,y_train,y_test = train_test_split(X,y,test_size = 0.2)
+len(x_train)
+len(x_test)
+
+from sklearn.naive_bayes import GaussianNB
+model = GaussianNB()
+model.fit(x_train,y_train)
+model.predict(x_test)
+(x_test)
+model.score(x_test,y_test) 
+
+

@@ -1,0 +1,20 @@
+import pandas as pd
+import numpy as np
+from sklearn import model_selection
+from sklearn import linear_model
+
+price - m1*area+m2*bedrooms+m3*age+b    m = coedf
+
+handling na values = 
+import math 
+meadian_beadrooms = math.floor(df.bedromms.median())
+var.bedarooms = df.bedrooms.fillna(median_bedarooms)
+var
+
+
+import math
+meadian_test_score = math.floor(var['test_score(out of 10)'].mean())
+var['test_score(out of 10)'] = var['test_score(out of 10)'].fillna(meadian_test_score)
+
+
+

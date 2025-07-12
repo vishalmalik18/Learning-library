@@ -1,0 +1,57 @@
+Support vector:-
+supervised learning
+Linear Regression
+classificaton
+
+Decison Boundary hyperplane
+2D
+sappate out
+margin line
+marginal Distance
+support vector
+consider higher maximum margin hyperplane
+
+Hyperplane in 2D and 3D and Feature Space
+
+tyep of SVM
+
+Linear SVM:-
+differnceshete in 2 class and using a straight line.
+
+Non-Liner
+Two class but dont sappart out
+
+kernel Function
+
+low-Dimensional Space
+High-Dimensional Space
+
+import pandas as pd
+from sklearn.model_selection import train_test_split
+
+dataset = pd.read_csv("iris.csv")
+
+x = dataset.iloc[:,0:5].values
+
+y = dataset.iloc[:,5].values
+
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2)
+
+from sklearn.svm import SVC
+model = SVC(kernel='linear')
+model.fit(x_train,y_train)
+model.predict(x_test)
+x_test
+model.score(x_test,y_test)
+
+
+
+
+
+
+
+
+
+
+
+
